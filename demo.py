@@ -51,7 +51,7 @@ if __name__ == "__main__":
         tracker_manager.set_tracker(MOSSETracker())
     elif args.tracker == "MEDIANFLOW":
         tracker_manager.set_tracker(MedianFlowTracker())
-    print(args.custom_roi)
+
     visualizer = Visualizer(tracker_manager=tracker_manager,
                             video_loader=loader,
                             roi_percent=args.roi_percent,
