@@ -6,6 +6,8 @@ The reason why I am broke DRY principle, because we cannot change the tracking f
 all types of trackers, because each has its own tracking principle. Some look at a part of the image, others
 at the whole image
 
+Also function initialization can be added separate from tracking function for to make the functions more understandable
+
 TODO: find out correct approach
 """
 
@@ -19,7 +21,7 @@ import numpy as np
 ###################
 
 class MILTracker(TrackerBase):
-    def __init__(self, bbox: np.ndarray):
+    def __init__(self, bbox: np.ndarray = np.array([0, 0, 0, 0])):
         super().__init__(bbox)
         self.tracker = cv2.TrackerMIL_create()
         self.is_initialized = False
@@ -57,7 +59,7 @@ class MILTracker(TrackerBase):
 ###################
 
 class BoostingTracker(TrackerBase):
-    def __init__(self, bbox):
+    def __init__(self, bbox: np.ndarray = np.array([0, 0, 0, 0])):
         super().__init__(bbox)
         self.tracker = cv2.legacy.TrackerBoosting_create()
         self.is_initialized = False
@@ -65,6 +67,8 @@ class BoostingTracker(TrackerBase):
     def track(self, frame):
         """
         TODO: write description
+        See: https://ieeexplore.ieee.org/document/5459285
+
         :param frame: The frame in which to track the object.
         :return: New bounding box (x, y, w, h) where the object is found in the frame. Return None if object is not found.
         """
@@ -86,7 +90,7 @@ class BoostingTracker(TrackerBase):
 ###################
 
 class MedianFlowTracker(TrackerBase):
-    def __init__(self, bbox):
+    def __init__(self, bbox: np.ndarray = np.array([0, 0, 0, 0])):
         super().__init__(bbox)
         self.tracker = cv2.legacy.TrackerMedianFlow_create()
         self.is_initialized = False
@@ -94,6 +98,8 @@ class MedianFlowTracker(TrackerBase):
     def track(self, frame):
         """
         TODO: write description
+        See: https://iajit.org/PDF/Vol%2017,%20No.%202/16021.pdf
+
         :param frame: The frame in which to track the object.
         :return: New bounding box (x, y, w, h) where the object is found in the frame. Return None if object is not found.
         """
@@ -116,7 +122,7 @@ class MedianFlowTracker(TrackerBase):
 ###################
 
 class TLDTracker(TrackerBase):
-    def __init__(self, bbox):
+    def __init__(self, bbox: np.ndarray = np.array([0, 0, 0, 0])):
         super().__init__(bbox)
         self.tracker = cv2.legacy.TrackerTLD_create()
         self.is_initialized = False
@@ -124,6 +130,8 @@ class TLDTracker(TrackerBase):
     def track(self, frame):
         """
         TODO: write description
+        See: http://vision.stanford.edu/teaching/cs231b_spring1415/papers/Kalal-PAMI.pdf
+
         :param frame: The frame in which to track the object.
         :return: New bounding box (x, y, w, h) where the object is found in the frame. Return None if object is not found.
         """
@@ -145,7 +153,7 @@ class TLDTracker(TrackerBase):
 ###################
 
 class KCFTracker(TrackerBase):
-    def __init__(self, bbox):
+    def __init__(self, bbox: np.ndarray = np.array([0, 0, 0, 0])):
         super().__init__(bbox)
         self.tracker = cv2.TrackerKCF_create()
         self.is_initialized = False
@@ -153,6 +161,8 @@ class KCFTracker(TrackerBase):
     def track(self, frame):
         """
         TODO: write description
+        See: https://cw.fel.cvut.cz/b182/courses/mpv/labs/4_tracking/4b_tracking_kcf
+
         :param frame: The frame in which to track the object.
         :return: New bounding box (x, y, w, h) where the object is found in the frame. Return None if object is not found.
         """
@@ -174,7 +184,7 @@ class KCFTracker(TrackerBase):
 ###################
 
 class GOTURNTracker(TrackerBase):
-    def __init__(self, bbox):
+    def __init__(self, bbox: np.ndarray = np.array([0, 0, 0, 0])):
         super().__init__(bbox)
         self.tracker = cv2.TrackerGOTURN_create()
         self.is_initialized = False
@@ -182,6 +192,8 @@ class GOTURNTracker(TrackerBase):
     def track(self, frame):
         """
         TODO: write description
+        See: https://learnopencv.com/goturn-deep-learning-based-object-tracking/
+
         :param frame: The frame in which to track the object.
         :return: New bounding box (x, y, w, h) where the object is found in the frame. Return None if object is not found.
         """
@@ -203,7 +215,7 @@ class GOTURNTracker(TrackerBase):
 ###################
 
 class MOSSETracker(TrackerBase):
-    def __init__(self, bbox):
+    def __init__(self, bbox: np.ndarray = np.array([0, 0, 0, 0])):
         super().__init__(bbox)
         self.tracker = cv2.legacy.TrackerMOSSE_create()
         self.is_initialized = False
@@ -211,6 +223,8 @@ class MOSSETracker(TrackerBase):
     def track(self, frame):
         """
         TODO: write description
+        See: https://api.mountainscholar.org/server/api/core/bitstreams/9ea405d8-7a84-408d-b18b-c6bcbb305e2e/content
+
         :param frame: The frame in which to track the object.
         :return: New bounding box (x, y, w, h) where the object is found in the frame. Return None if object is not found.
         """

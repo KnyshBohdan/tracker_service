@@ -5,9 +5,8 @@ from src.tracker.tracker_manager import TrackerManager
 import numpy as np
 
 
-tracker_classes = [MILTracker, BoostingTracker, TLDTracker, KCFTracker, MOSSETracker]
-# TODO: solve errors in GOTURNTracker
-# TODO: solve errors in MedianFlowTracker
+tracker_classes = [MILTracker, BoostingTracker, TLDTracker, KCFTracker, MOSSETracker, GOTURNTracker]
+# TODO: solve errors in MedianFlowTracker (doesn`t work in dummy test cases, but works in video)
 
 class TestTrackers:
     @pytest.mark.parametrize("tracker_class", tracker_classes)

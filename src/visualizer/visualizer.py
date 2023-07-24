@@ -67,6 +67,8 @@ class Visualizer(VisualizerBase):
     def add_bbox_to_frame(self):
         if self.bbox is not None:
             x, y, w, h = map(int, self.bbox)
+            print(f"{self.frame_counter}. bounding box: {x/ self.frame.shape[1]},"
+                  f" {y/ self.frame.shape[0]}, {w/ self.frame.shape[1]}, {h/ self.frame.shape[0]}")
             cv2.rectangle(self.frame, (x, y), (x + w, y + h), (0, 255, 0), 2)
 
     def log_event(self, event, bbox):
