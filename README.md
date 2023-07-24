@@ -52,6 +52,7 @@ To ensure the application runs as expected, run the following command:
 pytest
 ```
 
+Can make error while working with GOTURN tracker, more about it in GOTURN
 
 # Demo
 
@@ -70,6 +71,7 @@ Replace the variables with your preferences:
 * KCF
 * MOSSE
 * MEDIANFLOW
+* GOTURN
 
 `<input_file>` - Path to the input video file.
 
@@ -88,3 +90,18 @@ python demo.py --tracker MEDIANFLOW --input_file data/test_data/Video_test_CV_10
 ```
 
 Please ensure you provide the appropriate paths for your input, output, and log files for the command to run successfully.
+
+### GOTURN
+
+GOTURN, short for Generic Object Tracking Using Regression Networks, is a Deep Learning based tracking algorithm.
+
+To work with it, run next code:
+
+```bash
+git clone https://github.com/spmallick/goturn-files
+cd goturn-files
+cat goturn.caffemodel.zip* > goturn.caffemodel.zip
+unzip goturn.caffemodel.zip
+mv goturn.caffemodel ../goturn.caffemodel
+mv goturn.prototxt ../goturn.prototxt
+```

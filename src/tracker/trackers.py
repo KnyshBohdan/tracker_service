@@ -67,6 +67,8 @@ class BoostingTracker(TrackerBase):
     def track(self, frame):
         """
         TODO: write description
+        See: https://ieeexplore.ieee.org/document/5459285
+
         :param frame: The frame in which to track the object.
         :return: New bounding box (x, y, w, h) where the object is found in the frame. Return None if object is not found.
         """
@@ -96,6 +98,8 @@ class MedianFlowTracker(TrackerBase):
     def track(self, frame):
         """
         TODO: write description
+        See: https://iajit.org/PDF/Vol%2017,%20No.%202/16021.pdf
+
         :param frame: The frame in which to track the object.
         :return: New bounding box (x, y, w, h) where the object is found in the frame. Return None if object is not found.
         """
@@ -126,6 +130,8 @@ class TLDTracker(TrackerBase):
     def track(self, frame):
         """
         TODO: write description
+        See: http://vision.stanford.edu/teaching/cs231b_spring1415/papers/Kalal-PAMI.pdf
+
         :param frame: The frame in which to track the object.
         :return: New bounding box (x, y, w, h) where the object is found in the frame. Return None if object is not found.
         """
@@ -155,6 +161,8 @@ class KCFTracker(TrackerBase):
     def track(self, frame):
         """
         TODO: write description
+        See: https://cw.fel.cvut.cz/b182/courses/mpv/labs/4_tracking/4b_tracking_kcf
+
         :param frame: The frame in which to track the object.
         :return: New bounding box (x, y, w, h) where the object is found in the frame. Return None if object is not found.
         """
@@ -184,6 +192,8 @@ class GOTURNTracker(TrackerBase):
     def track(self, frame):
         """
         TODO: write description
+        See: https://learnopencv.com/goturn-deep-learning-based-object-tracking/
+
         :param frame: The frame in which to track the object.
         :return: New bounding box (x, y, w, h) where the object is found in the frame. Return None if object is not found.
         """
@@ -213,6 +223,8 @@ class MOSSETracker(TrackerBase):
     def track(self, frame):
         """
         TODO: write description
+        See: https://api.mountainscholar.org/server/api/core/bitstreams/9ea405d8-7a84-408d-b18b-c6bcbb305e2e/content
+
         :param frame: The frame in which to track the object.
         :return: New bounding box (x, y, w, h) where the object is found in the frame. Return None if object is not found.
         """
