@@ -7,8 +7,6 @@ from src.tracker.trackers import MILTracker, BoostingTracker, TLDTracker, KCFTra
     MOSSETracker, GOTURNTracker, MedianFlowTracker
 from src.visualizer.visualizer import Visualizer
 
-PATH_TO_VIDEO = "data/test_data/test.mp4"
-
 
 def parse_arguments():
     parser = argparse.ArgumentParser(description="A program to visualize tracking in a video")

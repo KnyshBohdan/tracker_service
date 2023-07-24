@@ -86,7 +86,7 @@ Replace the variables with your preferences:
 Example:
 
 ```bash
-python demo.py --tracker MEDIANFLOW --input_file data/test_data/Video_test_CV_10sec.mp4 --output_file output/output.mp4 --log_file output/log.csv --roi_percent 5 --custom_roi
+python demo.py --tracker MEDIANFLOW --input_file tests/test_data/test.mp4 --output_file output/output.mp4 --log_file output/log.csv --roi_percent 5 --custom_roi
 ```
 
 Please ensure you provide the appropriate paths for your input, output, and log files for the command to run successfully.
