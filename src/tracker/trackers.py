@@ -6,6 +6,8 @@ The reason why I am broke DRY principle, because we cannot change the tracking f
 all types of trackers, because each has its own tracking principle. Some look at a part of the image, others
 at the whole image
 
+Also function initialization can be added separate from tracking function for to make the functions more understandable
+
 TODO: find out correct approach
 """
 
@@ -19,7 +21,7 @@ import numpy as np
 ###################
 
 class MILTracker(TrackerBase):
-    def __init__(self, bbox: np.ndarray):
+    def __init__(self, bbox: np.ndarray = np.array([0, 0, 0, 0])):
         super().__init__(bbox)
         self.tracker = cv2.TrackerMIL_create()
         self.is_initialized = False
@@ -57,7 +59,7 @@ class MILTracker(TrackerBase):
 ###################
 
 class BoostingTracker(TrackerBase):
-    def __init__(self, bbox):
+    def __init__(self, bbox: np.ndarray = np.array([0, 0, 0, 0])):
         super().__init__(bbox)
         self.tracker = cv2.legacy.TrackerBoosting_create()
         self.is_initialized = False
@@ -86,7 +88,7 @@ class BoostingTracker(TrackerBase):
 ###################
 
 class MedianFlowTracker(TrackerBase):
-    def __init__(self, bbox):
+    def __init__(self, bbox: np.ndarray = np.array([0, 0, 0, 0])):
         super().__init__(bbox)
         self.tracker = cv2.legacy.TrackerMedianFlow_create()
         self.is_initialized = False
@@ -116,7 +118,7 @@ class MedianFlowTracker(TrackerBase):
 ###################
 
 class TLDTracker(TrackerBase):
-    def __init__(self, bbox):
+    def __init__(self, bbox: np.ndarray = np.array([0, 0, 0, 0])):
         super().__init__(bbox)
         self.tracker = cv2.legacy.TrackerTLD_create()
         self.is_initialized = False
@@ -145,7 +147,7 @@ class TLDTracker(TrackerBase):
 ###################
 
 class KCFTracker(TrackerBase):
-    def __init__(self, bbox):
+    def __init__(self, bbox: np.ndarray = np.array([0, 0, 0, 0])):
         super().__init__(bbox)
         self.tracker = cv2.TrackerKCF_create()
         self.is_initialized = False
@@ -174,7 +176,7 @@ class KCFTracker(TrackerBase):
 ###################
 
 class GOTURNTracker(TrackerBase):
-    def __init__(self, bbox):
+    def __init__(self, bbox: np.ndarray = np.array([0, 0, 0, 0])):
         super().__init__(bbox)
         self.tracker = cv2.TrackerGOTURN_create()
         self.is_initialized = False
@@ -203,7 +205,7 @@ class GOTURNTracker(TrackerBase):
 ###################
 
 class MOSSETracker(TrackerBase):
-    def __init__(self, bbox):
+    def __init__(self, bbox: np.ndarray = np.array([0, 0, 0, 0])):
         super().__init__(bbox)
         self.tracker = cv2.legacy.TrackerMOSSE_create()
         self.is_initialized = False
