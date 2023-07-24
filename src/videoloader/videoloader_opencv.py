@@ -17,6 +17,12 @@ class VideoLoaderOpenCV(VideoLoaderBase):
 
         return frame
 
+    def get_fps(self):
+        if self.video is None:
+            raise Exception("No video is currently open")
+
+        return self.video.get(cv2.CAP_PROP_FPS)
+
     def is_opened(self):
         return self.video.isOpened()
 

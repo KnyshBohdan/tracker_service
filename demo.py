@@ -14,6 +14,9 @@ if __name__ == "__main__":
 
     visualizer = Visualizer(tracker_manager=tracker_manager,
                             video_loader=loader,
-                            roi_percent=10)
+                            roi_percent=50,
+                            log_path="output/log.csv",
+                            output_path="output/output.mp4",
+                            custom_id=False)
 
     visualizer.visualize()
