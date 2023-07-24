@@ -38,6 +38,7 @@ class MILTracker(TrackerBase):
         if not self.is_initialized:
             self.tracker.init(frame, self.bbox)
             self.is_initialized = True
+            return self.bbox
 
         success, bbox = self.tracker.update(frame)
         if success:
@@ -70,6 +71,7 @@ class BoostingTracker(TrackerBase):
         if not self.is_initialized:
             self.tracker.init(frame, self.bbox)
             self.is_initialized = True
+            return self.bbox
 
         success, bbox = self.tracker.update(frame)
         return bbox if success else None
@@ -98,6 +100,7 @@ class MedianFlowTracker(TrackerBase):
         if not self.is_initialized:
             self.tracker.init(frame, self.bbox)
             self.is_initialized = True
+            return self.bbox
 
         success, bbox = self.tracker.update(frame)
 
@@ -127,6 +130,7 @@ class TLDTracker(TrackerBase):
         if not self.is_initialized:
             self.tracker.init(frame, self.bbox)
             self.is_initialized = True
+            return self.bbox
 
         success, bbox = self.tracker.update(frame)
         return bbox if success else None
@@ -155,6 +159,7 @@ class KCFTracker(TrackerBase):
         if not self.is_initialized:
             self.tracker.init(frame, self.bbox)
             self.is_initialized = True
+            return self.bbox
 
         success, bbox = self.tracker.update(frame)
         return bbox if success else None
@@ -183,6 +188,7 @@ class GOTURNTracker(TrackerBase):
         if not self.is_initialized:
             self.tracker.init(frame, self.bbox)
             self.is_initialized = True
+            return self.bbox
 
         success, bbox = self.tracker.update(frame)
         return bbox if success else None
@@ -211,6 +217,7 @@ class MOSSETracker(TrackerBase):
         if not self.is_initialized:
             self.tracker.init(frame, self.bbox)
             self.is_initialized = True
+            return self.bbox
 
         success, bbox = self.tracker.update(frame)
         return bbox if success else None
