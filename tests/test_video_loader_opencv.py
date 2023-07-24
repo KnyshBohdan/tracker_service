@@ -8,13 +8,13 @@ from tests.cache import TEST_VIDEO
 
 class TestVideoLoader:
     def setup_method(self):
-        self.video_loader = VideoLoaderOpenCV()
+        self.video_loader = VideoLoaderOpenCV(TEST_VIDEO)
 
     def teardown_method(self):
         self.video_loader.close()
 
     def test_open_close(self):
-        self.video_loader.open(TEST_VIDEO)
+        self.video_loader.open()
         assert self.video_loader.video is not None
         assert self.video_loader.is_opened() == True
 
@@ -22,7 +22,7 @@ class TestVideoLoader:
         assert self.video_loader.video is None
 
     def test_get_frame(self):
-        self.video_loader.open(TEST_VIDEO)
+        self.video_loader.open()
 
         frame = self.video_loader.get_frame()
 

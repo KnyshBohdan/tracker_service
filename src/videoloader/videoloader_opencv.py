@@ -1,10 +1,17 @@
+"""
+There could be an implementation of a class that inherit cv2.VideoCapture,
+but for this task, only a limited number of functions are needed that can
+be implemented manually
+"""
+
 import cv2
 from src.videoloader.base import VideoLoaderBase
 
 
 class VideoLoaderOpenCV(VideoLoaderBase):
-    def __init__(self):
+    def __init__(self, file_path: str):
         self.video = None
+        self.file_path = file_path
 
     def get_frame(self):
         if self.video is None:
@@ -12,20 +19,28 @@ class VideoLoaderOpenCV(VideoLoaderBase):
 
         ret, frame = self.video.read()
         if not ret:
-            raise Exception("Failed to read frame from video")
+            return None
 
         return frame
+
+    def get_fps(self):
+        if self.video is None:
+            raise Exception("No video is currently open")
+
+        return self.video.get(cv2.CAP_PROP_FPS)
 
     def is_opened(self):
         return self.video.isOpened()
 
-    def open(self, file_path):
-        self.video = cv2.VideoCapture(file_path)
+    def open(self):
+        self.close()
+
+        self.video = cv2.VideoCapture(self.file_path)
 
         if not self.video.isOpened():
-            raise Exception(f"Failed to open video: {file_path}")
+            raise Exception(f"Failed to open video: {self.file_path}")
 
-        print(f"Video {file_path} is successfully opened.")
+        print(f"Video {self.file_path} is successfully opened.")
 
     def close(self):
         if self.video is not None:

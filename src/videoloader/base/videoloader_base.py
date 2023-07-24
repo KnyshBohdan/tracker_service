@@ -9,6 +9,9 @@ class VideoLoaderBase(ABC):
     def is_opened(self) -> bool:
         pass
 
+    def get_fps(self) -> int:
+        pass
+
     def open(self, **kwargs):
         pass
 
