@@ -1,0 +1,6 @@
+.idea/
+data/
+src/videoloader/__pycache__/
+src/videoloader/base/__pycache__/
+tests/__pycache__/
+
