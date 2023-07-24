@@ -101,7 +101,7 @@ class Visualizer(VisualizerBase):
                 return True
 
             if self.bbox is not None:
-                key = input("Start tracking (press Q to quit)? (Y/N): ").upper()
+                key = input("Start tracking (press Q to quit)? (Y/N/Q): ").upper()
 
                 if key == "Y":
                     self.start_video_writer()

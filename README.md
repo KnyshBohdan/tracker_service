@@ -18,7 +18,7 @@ git clone https://github.com/KnyshBohdan/tracker_service
 cd tracker_service
 mkdir "output"
 virtualenv -p python3 env
-source env/bin/activate
+env/Scripts/activate
 pip install -r requirements.txt
 ```
 
@@ -29,7 +29,6 @@ git clone https://github.com/KnyshBohdan/tracker_service
 cd tracker_service
 mkdir "output"
 python3 -m venv env
-env\Scripts\activate.bat
 source env/bin/activate
 pip install -r requirements.txt
 ```
@@ -86,7 +85,7 @@ Replace the variables with your preferences:
 Example:
 
 ```bash
-python demo.py --tracker MEDIANFLOW --input_file tests/test_data/test.mp4 --output_file output/output.mp4 --log_file output/log.csv --roi_percent 5 --custom_roi
+python demo.py --tracker MEDIANFLOW --input_file tests/test_data/test.mp4 --output_file output/output.mp4 --log_file output/log.csv --roi_percent 5
 ```
 
 Please ensure you provide the appropriate paths for your input, output, and log files for the command to run successfully.
