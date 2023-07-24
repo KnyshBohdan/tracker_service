@@ -6,10 +6,17 @@ import csv
 
 from src.tracker.tracker_manager import TrackerManager
 from src.videoloader.base import VideoLoaderBase
+from src.visualizer.base import VisualizerBase
 
 
-class Visualizer:
-    def __init__(self, tracker_manager, video_loader, roi_percent, log_path, output_path, custom_id=False):
+class Visualizer(VisualizerBase):
+    def __init__(self,
+                 tracker_manager: TrackerManager,
+                 video_loader: VideoLoaderBase,
+                 roi_percent: float,
+                 log_path: str,
+                 output_path: str,
+                 custom_id: bool = False):
         self.tracker_manager = tracker_manager
         self.video_loader = video_loader
         self.roi_percent = roi_percent / 100

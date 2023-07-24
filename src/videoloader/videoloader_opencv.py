@@ -1,3 +1,9 @@
+"""
+There could be an implementation of a class that inherit cv2.VideoCapture,
+but for this task, only a limited number of functions are needed that can
+be implemented manually
+"""
+
 import cv2
 from src.videoloader.base import VideoLoaderBase
 

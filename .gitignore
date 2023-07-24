@@ -8,3 +8,4 @@ src/tracker/__pycache__/
 src/tracker/base/__pycache__/
 src/visualizer/__pycache__/
 output/
+src/visualizer/base/__pycache__/
