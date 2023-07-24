@@ -1,15 +1,16 @@
 from abc import ABC, abstractmethod
+import numpy as np
 
 
 class TrackerBase(ABC):
-    def __init__(self, bbox):
+    def __init__(self, bbox: np.ndarray):
         self.bbox = bbox
 
-    def set_bbox(self, bbox):
+    def set_bbox(self, bbox: np.ndarray):
         self.bbox = bbox
 
     @abstractmethod
-    def track(self, frame):
+    def track(self, frame: np.ndarray) -> np.ndarray:
         """
         This function should implement the logic for tracking the object in the provided frame.
         :param frame: The frame in which to track the object.
