@@ -16,6 +16,9 @@ class VideoLoaderOpenCV(VideoLoaderBase):
 
         return frame
 
+    def is_opened(self):
+        return self.video.isOpened()
+
     def open(self, file_path):
         self.video = cv2.VideoCapture(file_path)
 
