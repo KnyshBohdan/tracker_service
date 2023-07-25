@@ -104,3 +104,40 @@ unzip goturn.caffemodel.zip
 mv goturn.caffemodel ../goturn.caffemodel
 mv goturn.prototxt ../goturn.prototxt
 ```
+
+## Docker
+
+Docker Workflow
+
+In order to work within a Docker environment, we first need to construct our Docker image. You can create the image using the Dockerfile provided by running the following command:
+
+```bash
+ docker build -t tracker-service .
+```
+
+Given the need to interface with OpenCV's graphical user interface, we've created a script that runs a Docker container. This container can interact with the host's X server, enabling the display output. This functionality is especially useful for working with OpenCV, a leading computer vision library often used for tasks such as displaying images or videos.
+
+To run the Docker container, execute the script runDocker.sh with your video file's absolute path:
+
+```bash
+sh runDocker.sh <your_absoulute_path_to_video>
+```
+
+Please replace `<absolute_path_to_your_video>` with the actual path to your video file.
+
+If everything was set up correctly, you'll receive a command prompt providing access to the container. You can confirm if the video file, video.mp4 (which is your video), is present within the container.
+
+Now, you can operate as if you're working within a Python environment. For instance, you can execute the following command:
+
+```bash
+python demo.py --tracker MEDIANFLOW --input_file video.mp4 --output_file output.mp4 --log_file log.csv --roi_percent 5
+```
+
+After you've finished your work and exited the container, you can extract the output.mp4 and log.csv files by running:
+
+```bash
+docker cp <name_of_container>:log.csv .
+docker cp <name_of_container>:output.mp4 .
+```
+
+In the above commands, replace `<container_name>` with the name of your Docker container. After the execution of these commands, you'll find the output.mp4 and log.csv files in your current directory.
