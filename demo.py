@@ -15,9 +15,9 @@ def parse_arguments():
                         help="Type of tracker to be used")
     parser.add_argument("--input_file", type=str, required=True,
                         help="Path to the input video file")
-    parser.add_argument("--output_file", type=str, default="output/output.mp4",
+    parser.add_argument("--output_file", type=str, default="output.mp4",
                         help="Path to the output video file")
-    parser.add_argument("--log_file", type=str, default="output/log.csv",
+    parser.add_argument("--log_file", type=str, default="log.csv",
                         help="Path to the log file")
     parser.add_argument("--roi_percent", type=float, default=50,
                         help="Percentage of the ROI to be used for tracking")
