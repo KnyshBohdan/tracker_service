@@ -4,7 +4,7 @@ import numpy as np
 from src.tracker.tracker_manager import TrackerManager
 from src.videoloader import VideoLoaderOpenCV
 from src.tracker.trackers import MILTracker, BoostingTracker, TLDTracker, KCFTracker,\
-    MOSSETracker, GOTURNTracker, MedianFlowTracker
+    MOSSETracker, GOTURNTracker, MedianFlowTracker, CSRTTracker
 from src.visualizer.visualizer import Visualizer
 
 
@@ -49,6 +49,8 @@ if __name__ == "__main__":
         tracker_manager.set_tracker(MOSSETracker())
     elif args.tracker == "MEDIANFLOW":
         tracker_manager.set_tracker(MedianFlowTracker())
+    elif args.tracker == "CSRT":
+        tracker_manager.set_tracker(CSRTTracker())
 
     visualizer = Visualizer(tracker_manager=tracker_manager,
                             video_loader=loader,
