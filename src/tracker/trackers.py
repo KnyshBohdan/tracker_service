@@ -66,7 +66,11 @@ class BoostingTracker(TrackerBase):
 
     def track(self, frame):
         """
-        TODO: write description
+        The Boosting Tracker is a tracking method based on machine learning techniques. It works by training a classifier
+        to distinguish between the object and the background in the first frame. For subsequent frames, the classifier
+        is updated to continue tracking the object. The algorithm is designed to work with changes in illumination,
+        object scale and object pose. However, the method can fail with abrupt motion changes, occlusions, and object rotation.
+
         See: https://ieeexplore.ieee.org/document/5459285
 
         :param frame: The frame in which to track the object.
@@ -97,7 +101,11 @@ class MedianFlowTracker(TrackerBase):
 
     def track(self, frame):
         """
-        TODO: write description
+        The MedianFlow Tracker works by tracking the object in both forward and backward directions in time and
+        estimates the object's displacement using the median of these displacements. This allows the tracker to
+        detect and correct tracking failures early on, making it more robust to occlusions and other tracking
+        failures. However, it may not perform well with fast-moving objects or sudden changes in object appearance.
+
         See: https://iajit.org/PDF/Vol%2017,%20No.%202/16021.pdf
 
         :param frame: The frame in which to track the object.
@@ -129,7 +137,12 @@ class TLDTracker(TrackerBase):
 
     def track(self, frame):
         """
-        TODO: write description
+        The TLD (Tracking, Learning and Detection) Tracker, also known as the Predator Tracker, is designed to be robust
+        to various types of object motion including occlusion, object scaling and rotation, and camera motion. The TLD
+        algorithm works by tracking the object, learning its appearance, and detecting it in each frame. If the tracker
+        loses the object, the detector can find it again. This makes TLD very robust, but it may suffer from false positives
+        in complex scenes.
+
         See: http://vision.stanford.edu/teaching/cs231b_spring1415/papers/Kalal-PAMI.pdf
 
         :param frame: The frame in which to track the object.
@@ -160,7 +173,11 @@ class KCFTracker(TrackerBase):
 
     def track(self, frame):
         """
-        TODO: write description
+        The KCF (Kernelized Correlation Filter) Tracker uses a method based on correlation filters and kernel methods.
+        KCF is capable of handling changes in object appearance, such as changes in scale or aspect ratio. It is also
+        quite fast, making it suitable for real-time applications. However, it can fail in cases of occlusions or drastic
+        changes in object appearance.
+
         See: https://cw.fel.cvut.cz/b182/courses/mpv/labs/4_tracking/4b_tracking_kcf
 
         :param frame: The frame in which to track the object.
@@ -191,7 +208,12 @@ class GOTURNTracker(TrackerBase):
 
     def track(self, frame):
         """
-        TODO: write description
+        The GOTURN (Generic Object Tracking Using Regression Networks) Tracker is a deep learning-based method.
+        It uses a trained Convolutional Neural Network (CNN) to predict the bounding box of the target object
+        in the next frame given the current frame and the bounding box in the current frame. This method is robust
+        to changes in object scale, object pose, and illumination changes, but it requires a pre-trained model
+        and may not perform well for objects significantly different from those in the training data.
+
         See: https://learnopencv.com/goturn-deep-learning-based-object-tracking/
 
         :param frame: The frame in which to track the object.
@@ -222,7 +244,12 @@ class MOSSETracker(TrackerBase):
 
     def track(self, frame):
         """
-        TODO: write description
+        The MOSSE (Minimum Output Sum of Squared Error) Tracker is a correlation filter-based method that is
+        especially robust to changes in scale and in-plane rotation. It is also very fast, making it suitable
+        for real-time applications. The MOSSE tracker works by creating a model of the object's appearance and
+        updating this model over time to track the object through the video sequence. However, it may not handle
+        drastic changes in object appearance or severe occlusions.
+
         See: https://api.mountainscholar.org/server/api/core/bitstreams/9ea405d8-7a84-408d-b18b-c6bcbb305e2e/content
 
         :param frame: The frame in which to track the object.
