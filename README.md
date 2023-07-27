@@ -69,6 +69,7 @@ Replace the variables with your preferences:
 * TLD
 * KCF
 * MOSSE
+* CSRT
 * MEDIANFLOW
 * GOTURN
 
