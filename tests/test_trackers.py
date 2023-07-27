@@ -1,12 +1,13 @@
 import pytest
 from src.tracker.trackers import MILTracker, BoostingTracker, MOSSETracker,\
-    MedianFlowTracker, TLDTracker, KCFTracker, GOTURNTracker
+    MedianFlowTracker, TLDTracker, KCFTracker, GOTURNTracker, CSRTTracker
 from src.tracker.tracker_manager import TrackerManager
 import numpy as np
 
 
-tracker_classes = [MILTracker, BoostingTracker, TLDTracker, KCFTracker, MOSSETracker, GOTURNTracker]
+tracker_classes = [MILTracker, BoostingTracker, TLDTracker, KCFTracker, MOSSETracker, CSRTTracker]
 # TODO: solve errors in MedianFlowTracker (doesn`t work in dummy test cases, but works in video)
+# Test GOTURNTracker works only with weights
 
 class TestTrackers:
     @pytest.mark.parametrize("tracker_class", tracker_classes)

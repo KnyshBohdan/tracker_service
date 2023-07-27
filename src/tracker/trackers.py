@@ -266,3 +266,41 @@ class MOSSETracker(TrackerBase):
     def set_bbox(self, bbox):
         self.bbox = bbox
         self.is_initialized = False
+
+
+###################
+# CSRT
+###################
+
+class CSRTTracker(TrackerBase):
+    def __init__(self, bbox: np.ndarray = np.array([0, 0, 0, 0])):
+        super().__init__(bbox)
+        self.tracker = cv2.legacy.TrackerCSRT_create()
+        self.is_initialized = False
+
+    def track(self, frame):
+        """
+        The CSRT Tracker is based on the Discriminative Correlation Filter method. It combines the reliability maps
+        to weight the contributions of each pixel to the filter response, enabling more accurate tracking of objects.
+        It performs well in several aspects, including scale changes, rotation, and occlusion, and is particularly
+        suited for tracking smaller objects. However, it may not be as fast as other methods such as KCF or MOSSE.
+
+        See: https://arxiv.org/pdf/1611.08461.pdf
+
+        :param frame: The frame in which to track the object.
+        :return: New bounding box (x, y, w, h) where the object is found in the frame. Return None if object is not found.
+        """
+        if not self.is_initialized:
+            self.tracker.init(frame, self.bbox)
+            self.is_initialized = True
+            return self.bbox
+
+        success, bbox = self.tracker.update(frame)
+        return bbox if success else None
+
+    def set_bbox(self, bbox):
+        self.bbox = bbox
+        self.is_initialized = False
+
+
+
